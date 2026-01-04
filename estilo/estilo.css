@@ -147,6 +147,33 @@ h1::after {
     opacity: 0.9;
 }
 
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+        letter-spacing: 0.15em;
+        margin: 40px 0 24px;
+    }
+
+        h1::after {
+            width: 120px;
+            bottom: -10px;
+        }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+        letter-spacing: 0.12em;
+        margin: 32px 0 20px;
+    }
+
+        h1::after {
+            width: 90px;
+            bottom: -8px;
+        }
+}
+
+
 /* ========= VIDEOS ========= */
 .video-list {
     display: grid;
@@ -334,7 +361,7 @@ h1::after {
     .side-window {
         width: 100%;
         max-width: 100%;
-        border-radius: 30px;
+        border-radius: 20px;
     }
 }
 
@@ -351,24 +378,26 @@ h1::after {
     gap: 16px;
 }
 
+/* texto de la izquierda */
 .footer-info {
     color: #c4b5fd;
     line-height: 1.7;
     max-width: 360px;
     text-align: left;
-    font-size: 1.05rem;
-    /* más grande */
+    font-size: 1rem;
 }
 
+/* título central (mismo estilo que AUDIVISUALES/FOTOGRAFÍAS pero responsive) */
 .footer h1 {
-    font-size: 38px;
-    /* igual que AUDIVISUALES/FOTOGRAFÍAS */
+    font-weight: 800;
+    font-size: 40px;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     color: #f9f5ff;
     margin: 0;
 }
 
+/* iconos */
 .social-icons {
     margin-top: 14px;
     display: flex;
@@ -383,14 +412,44 @@ h1::after {
     opacity: 0.9;
 }
 
-.social-icon:hover {
-    transform: translateY(-2px) scale(1.05);
-    opacity: 1;
-    filter: drop-shadow(0 8px 20px rgba(168, 85, 247, 0.6));
-}
+    .social-icon:hover {
+        transform: translateY(-2px) scale(1.05);
+        opacity: 1;
+        filter: drop-shadow(0 8px 20px rgba(168,85,247,0.6));
+    }
 
 .footer-image img {
     width: 110px;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 900px) {
+    .footer {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-info {
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .footer h1 {
+            font-size: 28px;
+            letter-spacing: 0.14em;
+        }
+
+    .footer-image img {
+        width: 90px;
+    }
 }
 
 /* ================= RESPONSIVE ================= */
