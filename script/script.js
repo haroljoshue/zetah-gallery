@@ -1,3 +1,4 @@
+// Cargar videos e imágenes desde JSON
 async function loadData() {
     try {
         const response = await fetch('./recursos/datos.json?v=2');
@@ -36,18 +37,18 @@ async function loadData() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadData);
-
-
-
+// cargar datos al iniciar
 document.addEventListener("DOMContentLoaded", loadData);
 
 // Cambio de imagen en el footer al hacer clic en redes sociales
+// (las imágenes están dentro de <a>, el link se abre solo)
 document.querySelectorAll(".social-icon").forEach(icon => {
     icon.addEventListener("click", function () {
         const mainImage = document.getElementById("main-icon");
-        mainImage.src = this.getAttribute("data-img");
-        window.open(this.getAttribute("data-link"), "_blank");
+        const big = this.getAttribute("data-img");
+        if (big) {
+            mainImage.src = big;
+        }
     });
 });
 
@@ -58,30 +59,32 @@ function openSideWindow(option) {
 
     if (option === 'quien') {
         sideContent.innerHTML = `
-            <h2>¿Quién es ZetaH?</h2>
-            <img src="./recursos/harol.png" alt="ZetaH" class="zetah-img">
-            <p>¡Hey! Soy Harol Joshue, pero en el mundo artístico me conocen como ZetaH. Soy de Ibarra, Ecuador.</p>
-            <p>Apasionado por la música y el mundo visual: cine, fotografía y edición. Aprendiz de manera autónoma, siempre explorando nuevas ideas.</p>
-            <p>Si te interesa lo que hago, quédate por aquí y contáctame. 🔥</p>
-        `;
+      <h2>¿Quién es ZetaH?</h2>
+      <img src="./recursos/harol.png" alt="ZetaH" class="zetah-img">
+      <p>Mi nombre es Harol Joshue, conocido artísticamente como ZetaH. Soy de Ibarra, Ecuador.</p>
+      <p>Apasionado por la música y el mundo visual: cine, fotografía y edición. Aprendiz de manera autónoma, siempre explorando nuevas ideas.</p>
+      <p>Si te interesa lo que hago, puedes ponerte en contacto conmigo mediante los canales disponibles.</p>
+    `;
     } else if (option === 'contacto') {
         sideContent.innerHTML = `
-            <h2>Contacto</h2>
-            <p>Para más información, puedes comunicarte a través de los siguientes medios:</p>
-            <p><strong>Teléfono:</strong> <a href="tel:+593992323613">+593 99 232 3613</a></p>
-            <p><strong>Correo electrónico:</strong> <a href="mailto:harolzambrano2005@gmail.com">harolzambrano2005@gmail.com</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://w.app/l469ab" target="_blank">Abrir conversación</a></p>
-            <img src="./recursos/codigo.jpg" alt="Código QR" class="zetah-img">
-        `;
+      <h2>Contacto</h2>
+      <p>Para más información, puedes comunicarte a través de los siguientes medios:</p>
+      <p><strong>Teléfono:</strong> <a href="tel:+593992323613">+593 99 232 3613</a></p>
+      <p><strong>Correo electrónico:</strong> <a href="mailto:harolzambrano2005@gmail.com">harolzambrano2005@gmail.com</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://w.app/l469ab" target="_blank">Abrir conversación</a></p>
+      <img src="./recursos/codigo.jpg" alt="Código QR" class="zetah-img">
+    `;
     } else if (option === 'redes') {
         sideContent.innerHTML = `
-            <h2>Redes sociales</h2>
-            <img src="./recursos/ico.png" alt="ZetaH" class="zetah-img">
-            <p>Sigue mi trabajo y contenido en las siguientes plataformas:</p>
-            <a href="https://www.instagram.com/haroljoshue/" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/Zambrano2005" target="_blank">Facebook</a>
-            <a href="https://w.app/l469ab" target="_blank">WhatsApp</a>
-        `;
+      <h2>Redes sociales</h2>
+      <img src="./recursos/ico.png" alt="ZetaH" class="zetah-img">
+      <p>Sigue mi trabajo y contenido en las siguientes plataformas:</p>
+      <ul class="side-links">
+        <li><a href="https://www.instagram.com/haroljoshue/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/Zambrano2005" target="_blank">Facebook</a></li>
+        <li><a href="https://w.app/l469ab" target="_blank">WhatsApp</a></li>
+      </ul>
+    `;
     }
 
     sideWindow.style.right = "0";

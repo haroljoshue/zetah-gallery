@@ -154,10 +154,10 @@ h1::after {
         margin: 40px 0 24px;
     }
 
-        h1::after {
-            width: 120px;
-            bottom: -10px;
-        }
+    h1::after {
+        width: 120px;
+        bottom: -10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -167,10 +167,10 @@ h1::after {
         margin: 32px 0 20px;
     }
 
-        h1::after {
-            width: 90px;
-            bottom: -8px;
-        }
+    h1::after {
+        width: 90px;
+        bottom: -8px;
+    }
 }
 
 
@@ -365,6 +365,44 @@ h1::after {
     }
 }
 
+.side-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    text-align: center;
+}
+
+.side-links li {
+    margin: 6px 0;
+}
+
+.side-links a {
+    position: relative;
+    display: inline-block;
+    color: #f9f5ff;
+    text-decoration: none;
+    padding-bottom: 3px;
+}
+
+/* línea degradada debajo */
+.side-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #f97316, #ec4899, #a855f7, #38bdf8);
+    border-radius: 999px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease-out;
+}
+
+.side-links a:hover::after {
+    transform: scaleX(1);
+}
+
 /* ================= FOOTER ================= */
 .footer {
     margin-top: 60px;
@@ -404,6 +442,12 @@ h1::after {
     gap: 12px;
 }
 
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .social-icon {
     width: 32px;
     height: 32px;
@@ -412,11 +456,12 @@ h1::after {
     opacity: 0.9;
 }
 
-    .social-icon:hover {
-        transform: translateY(-2px) scale(1.05);
-        opacity: 1;
-        filter: drop-shadow(0 8px 20px rgba(168,85,247,0.6));
-    }
+.social-icons a:hover .social-icon {
+    transform: translateY(-2px) scale(1.05);
+    opacity: 1;
+    filter: drop-shadow(0 8px 20px rgba(168, 85, 247, 0.6));
+}
+
 
 .footer-image img {
     width: 110px;
@@ -442,10 +487,10 @@ h1::after {
         gap: 20px;
     }
 
-        .footer h1 {
-            font-size: 28px;
-            letter-spacing: 0.14em;
-        }
+    .footer h1 {
+        font-size: 28px;
+        letter-spacing: 0.14em;
+    }
 
     .footer-image img {
         width: 90px;
